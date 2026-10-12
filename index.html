@@ -1,0 +1,923 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f5ee">
+    <meta name="description"
+        content="Escápate a la naturaleza. Conoce nuestras cabañas privadas en el bosque y reserva tu próxima aventura.">
+    <title>Refugio Termal | Cabañas para desconectar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --forest: #233d32;
+            --forest-deep: #172c24;
+            --moss: #78876b;
+            --cream: #f7f5ee;
+            --sand: #e9e4d8;
+            --ink: #252a26;
+            --muted: #727871;
+            --serif: 'Playfair Display', Georgia, serif;
+            --sans: 'DM Sans', sans-serif
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 82px
+        }
+
+        body {
+            font-family: var(--sans);
+            color: var(--ink);
+            background: #fff
+        }
+
+        h1,
+        h2,
+        h3,
+        .serif {
+            font-family: var(--serif)
+        }
+
+        .navbar {
+            background: rgba(247, 245, 238, .96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(35, 61, 50, .08);
+            min-height: 76px
+        }
+
+        .navbar-brand {
+            font-family: var(--serif);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--forest) !important;
+            letter-spacing: -.03em
+        }
+
+        .brand-mark {
+            display: inline-grid;
+            place-items: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--forest);
+            color: #fff;
+            font-size: 1rem;
+            margin-right: 8px
+        }
+
+        .nav-link {
+            font-size: .88rem;
+            font-weight: 600;
+            color: #454d46 !important;
+            margin: 0 .45rem
+        }
+
+        .nav-link:hover {
+            color: var(--moss) !important
+        }
+
+        .btn-forest {
+            background: var(--forest);
+            color: #fff;
+            border: 1px solid var(--forest);
+            border-radius: 999px;
+            padding: .76rem 1.35rem;
+            font-weight: 600;
+            transition: .2s
+        }
+
+        .btn-forest:hover {
+            background: var(--forest-deep);
+            border-color: var(--forest-deep);
+            color: #fff;
+            transform: translateY(-1px)
+        }
+
+        .btn-outline-forest {
+            color: var(--forest);
+            border: 1px solid var(--forest);
+            border-radius: 999px;
+            padding: .76rem 1.35rem;
+            font-weight: 600
+        }
+
+        .btn-outline-forest:hover {
+            background: var(--forest);
+            color: #fff
+        }
+
+        .hero {
+            min-height: 690px;
+            height: min(88vh, 850px);
+            position: relative;
+            display: flex;
+            align-items: center;
+            color: white;
+            background: linear-gradient(90deg, rgba(15, 32, 25, .74), rgba(15, 32, 25, .24) 68%, rgba(15, 32, 25, .08)), linear-gradient(0deg, rgba(15, 32, 25, .36), transparent 50%), url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2200&q=85') center 52%/cover
+        }
+
+        .hero-content {
+            max-width: 720px;
+            padding-top: 42px
+        }
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: .18em;
+            font-weight: 700;
+            font-size: .73rem
+        }
+
+        .hero .eyebrow {
+            color: #d6ddc9
+        }
+
+        .hero h1 {
+            font-size: clamp(3.25rem, 7vw, 6.1rem);
+            line-height: .99;
+            letter-spacing: -.045em;
+            margin: 1.15rem 0
+        }
+
+        .hero p {
+            max-width: 520px;
+            color: rgba(255, 255, 255, .84);
+            font-size: 1.08rem;
+            line-height: 1.75
+        }
+
+        .hero .btn-light {
+            border-radius: 999px;
+            padding: .83rem 1.45rem;
+            font-weight: 700;
+            color: var(--forest)
+        }
+
+        .hero-note {
+            position: absolute;
+            bottom: 28px;
+            right: 5%;
+            font-size: .75rem;
+            color: rgba(255, 255, 255, .75);
+            letter-spacing: .04em
+        }
+
+        .section-pad {
+            padding: 100px 0
+        }
+
+        .section-kicker {
+            color: var(--moss);
+            font-size: .73rem;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            font-weight: 700
+        }
+
+        .section-title {
+            font-size: clamp(2.2rem, 4vw, 3.65rem);
+            letter-spacing: -.035em;
+            color: var(--forest);
+            line-height: 1.1
+        }
+
+        .section-lead {
+            color: var(--muted);
+            max-width: 600px;
+            line-height: 1.8
+        }
+
+        .intro-strip {
+            background: var(--cream);
+            padding: 22px 0
+        }
+
+        .intro-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: .7rem;
+            color: #49564d;
+            font-size: .87rem;
+            font-weight: 600
+        }
+
+        .intro-item i {
+            color: var(--moss);
+            font-size: 1.1rem
+        }
+
+        .cabin-section {
+            background: #fff
+        }
+
+        .cabin-card {
+            height: 100%;
+            border: 0;
+            border-radius: 18px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 12px 40px rgba(23, 44, 36, .09);
+            transition: transform .25s, box-shadow .25s
+        }
+
+        .cabin-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 46px rgba(23, 44, 36, .14)
+        }
+
+        .cabin-image {
+            height: 280px;
+            object-fit: cover;
+            width: 100%
+        }
+
+        .cabin-body {
+            padding: 26px
+        }
+
+        .cabin-tag {
+            font-size: .7rem;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            background: #edf0e7;
+            color: var(--forest);
+            padding: 7px 11px;
+            border-radius: 99px;
+            font-weight: 700
+        }
+
+        .cabin-body h3 {
+            font-size: 1.65rem;
+            color: var(--forest);
+            margin: 17px 0 9px
+        }
+
+        .cabin-body p {
+            font-size: .92rem;
+            color: var(--muted);
+            line-height: 1.7
+        }
+
+        .amenities {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 18px 0 22px
+        }
+
+        .amenities span {
+            font-size: .75rem;
+            background: #f7f6f1;
+            border-radius: 99px;
+            padding: 7px 10px;
+            color: #586158
+        }
+
+        .amenities i {
+            color: var(--moss);
+            margin-right: 4px
+        }
+
+        .price-row {
+            border-top: 1px solid #eeeee8;
+            padding-top: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .price {
+            font-weight: 700;
+            color: var(--forest);
+            font-size: 1.3rem
+        }
+
+        .price small {
+            font-size: .75rem;
+            color: var(--muted);
+            font-weight: 400
+        }
+
+        .cabin-meta {
+            font-size: .8rem;
+            color: var(--muted)
+        }
+
+        .story-section {
+            background: var(--cream)
+        }
+
+        .story-img {
+            width: 100%;
+            height: 490px;
+            object-fit: cover;
+            border-radius: 16px
+        }
+
+        .story-copy {
+            max-width: 490px
+        }
+
+        .story-points {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-top: 30px
+        }
+
+        .story-point {
+            border-top: 1px solid #d9d9cd;
+            padding-top: 14px;
+            font-size: .83rem;
+            color: #586158
+        }
+
+        .story-point strong {
+            display: block;
+            color: var(--forest);
+            font-size: 1rem;
+            margin-bottom: 4px
+        }
+
+        .gallery-section {
+            background: var(--forest-deep);
+            color: #fff
+        }
+
+        .gallery-section .section-title {
+            color: #fff
+        }
+
+        .gallery-section .section-kicker {
+            color: #c3cba9
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1.25fr 1fr 1fr;
+            grid-template-rows: 230px 230px;
+            gap: 14px
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: filter .2s, transform .2s
+        }
+
+        .gallery-grid img:hover {
+            filter: brightness(.82);
+            transform: scale(.99)
+        }
+
+        .gallery-grid .gallery-tall {
+            grid-row: span 2
+        }
+
+        .location-section {
+            background: #fff
+        }
+
+        .map-frame {
+            width: 100%;
+            height: 410px;
+            border: 0;
+            border-radius: 16px;
+            filter: saturate(.78)
+        }
+
+        .location-card {
+            background: var(--cream);
+            border-radius: 16px;
+            padding: 26px
+        }
+
+        .location-card i {
+            font-size: 1.2rem;
+            color: var(--moss)
+        }
+
+        .booking-section {
+            background: var(--cream)
+        }
+
+        .booking-wrap {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 16px 50px rgba(23, 44, 36, .09)
+        }
+
+        .booking-aside {
+            background: var(--forest);
+            color: #fff;
+            padding: 48px;
+            height: 100%;
+            background-image: linear-gradient(rgba(23, 44, 36, .86), rgba(23, 44, 36, .9)), url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=900&q=80');
+            background-size: cover;
+            background-position: center
+        }
+
+        .booking-aside h2 {
+            font-size: 2.6rem
+        }
+
+        .booking-aside p {
+            color: rgba(255, 255, 255, .74);
+            line-height: 1.8
+        }
+
+        .booking-aside li {
+            margin: 16px 0;
+            color: rgba(255, 255, 255, .88);
+            font-size: .9rem
+        }
+
+        .booking-aside li i {
+            color: #c3cba9;
+            margin-right: 10px
+        }
+
+        .booking-form {
+            padding: 48px
+        }
+
+        .form-label {
+            font-size: .82rem;
+            font-weight: 700;
+            color: #414a43
+        }
+
+        .form-control,
+        .form-select {
+            border: 1px solid #dfe2da;
+            border-radius: 9px;
+            padding: .78rem .9rem;
+            font-size: .9rem
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: var(--moss);
+            box-shadow: 0 0 0 .2rem rgba(120, 135, 107, .15)
+        }
+
+        .form-note {
+            font-size: .76rem;
+            color: var(--muted)
+        }
+
+        footer {
+            background: #14251e;
+            color: rgba(255, 255, 255, .74);
+            padding: 35px 0;
+            font-size: .82rem
+        }
+
+        footer .navbar-brand {
+            color: #fff !important
+        }
+
+        footer a {
+            color: rgba(255, 255, 255, .74);
+            text-decoration: none
+        }
+
+        footer a:hover {
+            color: white
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            z-index: 1020;
+            right: 22px;
+            bottom: 22px;
+            width: 54px;
+            height: 54px;
+            background: #25d366;
+            color: #fff;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-size: 1.6rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, .2);
+            text-decoration: none
+        }
+
+        .whatsapp-float:hover {
+            color: #fff;
+            transform: translateY(-2px)
+        }
+
+        @media(max-width:767.98px) {
+            .hero {
+                height: 82vh;
+                min-height: 620px;
+                background-position: 58% center
+            }
+
+            .section-pad {
+                padding: 72px 0
+            }
+
+            .hero-note {
+                display: none
+            }
+
+            .intro-item {
+                justify-content: flex-start;
+                padding: 8px 18px
+            }
+
+            .story-img {
+                height: 330px;
+                margin-bottom: 28px
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 190px 190px 190px
+            }
+
+            .gallery-grid .gallery-tall {
+                grid-row: span 2
+            }
+
+            .gallery-grid img:last-child {
+                display: none
+            }
+
+            .booking-aside,
+            .booking-form {
+                padding: 32px 25px
+            }
+
+            .booking-aside h2 {
+                font-size: 2.1rem
+            }
+
+            .map-frame {
+                height: 320px
+            }
+
+            .nav-cta {
+                margin: 8px 0 10px
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            html {
+                scroll-behavior: auto
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition: none !important
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top" aria-label="Navegación principal">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="#inicio"><span
+                    class="brand-mark"><i class="bi bi-tree-fill"></i></span>Refugio Termal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-controls="mainNav" aria-expanded="false" aria-label="Abrir menú"><span
+                    class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="#cabanas">Cabañas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experiencia">La experiencia</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#galeria">Galería</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#ubicacion">Ubicación</a></li>
+                    <li class="nav-item nav-cta ms-lg-2"><a class="btn btn-forest btn-sm px-4 py-2"
+                            href="#reservar">Reservar ahora</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero" id="inicio">
+            <div class="container">
+                <div class="hero-content"><span class="eyebrow"><i class="bi bi-geo-alt-fill me-2"></i>Tu refugio entre
+                        los árboles</span>
+                    <h1>Haz espacio<br>para respirar.</h1>
+                    <p>Dos cabañas privadas, noches estrelladas y el silencio del bosque. Una escapada para volver a lo
+                        que importa.</p>
+                    <div class="d-flex flex-wrap gap-3 mt-4"><a class="btn btn-light" href="#cabanas">Descubre las
+                            cabañas <i class="bi bi-arrow-down-right ms-2"></i></a><a
+                            class="btn btn-outline-light rounded-pill px-4 py-3 fw-semibold" href="#reservar">Consultar
+                            disponibilidad</a></div>
+                </div>
+            </div>
+            <div class="hero-note">Un rincón de naturaleza, hecho para ti</div>
+        </section>
+
+        <section class="intro-strip" aria-label="Lo que ofrecemos">
+            <div class="container">
+                <div class="row g-2">
+                    <div class="col-12 col-md-4">
+                        <div class="intro-item"><i class="bi bi-stars"></i>Privacidad y tranquilidad</div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="intro-item"><i class="bi bi-tree"></i>En plena naturaleza</div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="intro-item"><i class="bi bi-heart"></i>Detalles para disfrutar</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-pad cabin-section" id="cabanas">
+            <div class="container">
+                <div class="row align-items-end mb-5">
+                    <div class="col-lg-7"><span class="section-kicker">Quédate a tu manera</span>
+                        <h2 class="section-title mt-3 mb-3">Nuestras cabañas</h2>
+                        <p class="section-lead mb-0">Cada refugio tiene su propio encanto. Elige el espacio que mejor se
+                            adapte a tu próxima escapada.</p>
+                    </div>
+                    <div class="col-lg-5 text-lg-end mt-3 mt-lg-0"><span class="cabin-meta"><i
+                                class="bi bi-shield-check me-1"></i> Espacios privados · Reserva directa</span></div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <article class="cabin-card"><img class="cabin-image"
+                                src="https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=1200&q=85"
+                                alt="Cabaña de madera rodeada de bosque" loading="lazy">
+                            <div class="cabin-body">
+                                <div class="d-flex justify-content-between align-items-center"><span
+                                        class="cabin-tag">Ideal para parejas</span><span class="cabin-meta"><i
+                                            class="bi bi-people me-1"></i> 2–4 personas</span></div>
+                                <h3>Cabaña El Roble</h3>
+                                <p>Un rincón cálido con terraza privada, detalles en madera y vistas que invitan a
+                                    quedarse un poco más.</p>
+                                <div class="amenities"><span><i class="bi bi-fire"></i>Chimenea</span><span><i
+                                            class="bi bi-cup-hot"></i>Cocina equipada</span><span><i
+                                            class="bi bi-wifi"></i>Wi-Fi</span><span><i class="bi bi-tree"></i>Terraza
+                                        privada</span></div>
+                                <div class="price-row">
+                                    <div class="price">L 2,800 <small>/ noche</small></div><a href="#reservar"
+                                        class="btn btn-forest btn-sm px-3">Elegir cabaña</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-lg-6">
+                        <article class="cabin-card"><img class="cabin-image"
+                                src="https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=1200&q=85&sat=-35"
+                                alt="Cabaña acogedora en un claro del bosque" loading="lazy">
+                            <div class="cabin-body">
+                                <div class="d-flex justify-content-between align-items-center"><span
+                                        class="cabin-tag">Para compartir</span><span class="cabin-meta"><i
+                                            class="bi bi-people me-1"></i> 4–6 personas</span></div>
+                                <h3>Cabaña La Neblina</h3>
+                                <p>Despierta entre pinos, disfruta del café sin prisa y termina el día junto al fuego
+                                    con los tuyos.</p>
+                                <div class="amenities"><span><i class="bi bi-fire"></i>Chimenea</span><span><i
+                                            class="bi bi-cup-hot"></i>Cocina equipada</span><span><i
+                                            class="bi bi-droplet"></i>Tina caliente</span><span><i
+                                            class="bi bi-tree"></i>Balcón panorámico</span></div>
+                                <div class="price-row">
+                                    <div class="price">L 3,900 <small>/ noche</small></div><a href="#reservar"
+                                        class="btn btn-forest btn-sm px-3">Elegir cabaña</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <p class="form-note mt-3">Tarifas de referencia por noche. Confirma disponibilidad y precio final al
+                    reservar.</p>
+            </div>
+        </section>
+
+        <section class="section-pad story-section" id="experiencia">
+            <div class="container">
+                <div class="row align-items-center g-lg-5">
+                    <div class="col-lg-6"><img class="story-img"
+                            src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1300&q=85"
+                            alt="Sendero tranquilo entre árboles altos" loading="lazy"></div>
+                    <div class="col-lg-6">
+                        <div class="story-copy"><span class="section-kicker">Baja el ritmo</span>
+                            <h2 class="section-title mt-3 mb-4">El bosque marca<br>el paso.</h2>
+                            <p class="section-lead">Aquí los días empiezan con aire fresco y terminan bajo un cielo
+                                lleno de estrellas. Camina entre árboles, prepara algo rico y disfruta el lujo sencillo
+                                de no tener prisa.</p>
+                            <div class="story-points">
+                                <div class="story-point"><strong>Desconexión</strong>Espacios para descansar de verdad
+                                </div>
+                                <div class="story-point"><strong>Aire libre</strong>Senderos y rincones naturales</div>
+                                <div class="story-point"><strong>Tu propio ritmo</strong>Sin horarios, con comodidad
+                                </div>
+                                <div class="story-point"><strong>Momentos juntos</strong>Un refugio para compartir</div>
+                            </div><a class="btn btn-outline-forest mt-4" href="#reservar">Planea tu escapada <i
+                                    class="bi bi-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-pad gallery-section" id="galeria">
+            <div class="container">
+                <div class="row align-items-end mb-5">
+                    <div class="col-md-8"><span class="section-kicker">Postales del refugio</span>
+                        <h2 class="section-title mt-3 mb-0">Un vistazo a la calma</h2>
+                    </div>
+                    <div class="col-md-4 text-md-end mt-3"><span class="text-white-50 small">Desliza la mirada, empieza
+                            a imaginar</span></div>
+                </div>
+                <div class="gallery-grid"><img class="gallery-tall"
+                        src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=900&q=85"
+                        alt="Luz entre los árboles del bosque" loading="lazy"><img
+                        src="https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=800&q=85"
+                        alt="Cabaña de madera en el bosque" loading="lazy"><img
+                        src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=800&q=85"
+                        alt="Camino de bosque" loading="lazy"><img
+                        src="https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=800&q=85&sat=-45"
+                        alt="Terraza de una cabaña entre árboles" loading="lazy"><img
+                        src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=800&q=85&sat=-25"
+                        alt="Verde profundo en el bosque" loading="lazy"></div>
+            </div>
+        </section>
+
+        <section class="section-pad location-section" id="ubicacion">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-5"><span class="section-kicker">Cómo llegar</span>
+                        <h2 class="section-title mt-3 mb-3">Lejos del ruido.<br>Cerca de todo lo bueno.</h2>
+                        <p class="section-lead mb-4">Nos encontrarás en Balneario el Eden, Palo Ralos. El pin del mapa es ilustrativo; contáctanos para recibir la ubicación exacta y las
+                            indicaciones.</p>
+                        <div class="location-card">
+                            <div class="d-flex gap-3 mb-3"><i class="bi bi-geo-alt-fill"></i>
+                                <div><strong class="d-block text-dark">San Ignacio</strong><span
+                                        class="small text-secondary">Francisco Morazán, Honduras</span></div>
+                            </div>
+                            <div class="d-flex gap-3"><i class="bi bi-car-front-fill"></i>
+                                <div><strong class="d-block text-dark">Aproximadamente 1 hora</strong><span
+                                        class="small text-secondary">desde Tegucigalpa, según el tráfico</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7"><iframe class="map-frame" title="Mapa de San Ignacio, Honduras"
+                            src="https://maps.google.com/maps?q=14.6923182,-87.0755932&z=16&ie=UTF8&iwloc=&output=embed"
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-pad booking-section" id="reservar">
+            <div class="container">
+                <div class="booking-wrap">
+                    <div class="row g-0">
+                        <div class="col-lg-5">
+                            <aside class="booking-aside"><span class="eyebrow">Tu próxima escapada</span>
+                                <h2 class="mt-3 mb-3">El bosque te está esperando.</h2>
+                                <p>Cuéntanos cuándo quieres venir. Te responderemos por WhatsApp para confirmar
+                                    disponibilidad y ayudarte con los detalles.</p>
+                                <ul class="list-unstyled mt-4">
+                                    <li><i class="bi bi-check-circle"></i>Atención directa y personalizada</li>
+                                    <li><i class="bi bi-check-circle"></i>Confirmación de fechas por WhatsApp</li>
+                                    <li><i class="bi bi-check-circle"></i>Sin intermediarios</li>
+                                </ul>
+                            </aside>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="booking-form"><span class="section-kicker">Reserva directa</span>
+                                <h2 class="section-title mt-2 mb-2">Planeemos tu visita</h2>
+                                <p class="section-lead mb-4">Completa tus datos y se abrirá WhatsApp con tu solicitud
+                                    lista para enviar.</p>
+                                <form id="bookingForm">
+                                    <div class="row g-3">
+                                        <div class="col-md-6"><label class="form-label" for="guestName">Nombre
+                                                completo</label><input class="form-control" id="guestName" name="nombre"
+                                                type="text" placeholder="¿Cómo te llamas?" required autocomplete="name">
+                                        </div>
+                                        <div class="col-md-6"><label class="form-label" for="guestPhone">Tu
+                                                teléfono</label><input class="form-control" id="guestPhone"
+                                                name="telefono" type="tel" placeholder="+504 9999-9999" required
+                                                autocomplete="tel"></div>
+                                        <div class="col-md-6"><label class="form-label"
+                                                for="cabin">Cabaña</label><select class="form-select" id="cabin"
+                                                name="cabana" required>
+                                                <option value="" selected disabled>Elige una cabaña</option>
+                                                <option value="Cabaña El Roble">Cabaña El Roble</option>
+                                                <option value="Cabaña La Neblina">Cabaña La Neblina</option>
+                                                <option value="Cualquiera de las dos">Cualquiera de las dos</option>
+                                            </select></div>
+                                        <div class="col-md-6"><label class="form-label" for="guests">Número de
+                                                huéspedes</label><select class="form-select" id="guests"
+                                                name="huespedes" required>
+                                                <option value="" selected disabled>Selecciona</option>
+                                                <option>1 huésped</option>
+                                                <option>2 huéspedes</option>
+                                                <option>3 huéspedes</option>
+                                                <option>4 huéspedes</option>
+                                                <option>5 huéspedes</option>
+                                                <option>6 huéspedes</option>
+                                            </select></div>
+                                        <div class="col-md-6"><label class="form-label" for="arrival">Fecha de
+                                                llegada</label><input class="form-control" id="arrival" name="llegada"
+                                                type="date" required></div>
+                                        <div class="col-md-6"><label class="form-label" for="departure">Fecha de
+                                                salida</label><input class="form-control" id="departure" name="salida"
+                                                type="date" required></div>
+                                        <div class="col-12"><label class="form-label" for="message">¿Algo más que
+                                                debamos saber? <span
+                                                    class="text-secondary fw-normal">(opcional)</span></label><textarea
+                                                class="form-control" id="message" name="mensaje" rows="3"
+                                                placeholder="Una ocasión especial, una pregunta…"></textarea></div>
+                                        <div class="col-12 mt-4"><button class="btn btn-forest w-100" type="submit"><i
+                                                    class="bi bi-whatsapp me-2"></i>Enviar solicitud por
+                                                WhatsApp</button>
+                                            <p class="form-note mt-3 mb-0 text-center">Tu mensaje se abrirá en WhatsApp
+                                                para que puedas revisarlo y enviarlo.</p>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="row align-items-center gy-3">
+                <div class="col-md-5"><a class="navbar-brand d-inline-flex align-items-center" href="#inicio"><span
+                            class="brand-mark"><i class="bi bi-tree-fill"></i></span>Refugio Termal</a></div>
+                <div class="col-md-4 text-md-center">Un refugio para volver a respirar.</div>
+                <div class="col-md-3 text-md-end">© <span id="year"></span> Refugio Termal</div>
+            </div>
+        </div>
+    </footer>
+    <a class="whatsapp-float" href="https://wa.me/50499999999" target="_blank" rel="noopener"
+        aria-label="Escríbenos por WhatsApp"><i class="bi bi-whatsapp"></i></a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Reemplaza este valor por tu número con código de país, solo dígitos.
+        const WHATSAPP_NUMBER = '50493087562';
+        const form = document.getElementById('bookingForm');
+        const arrival = document.getElementById('arrival');
+        const departure = document.getElementById('departure');
+        const today = new Date();
+        const localToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+        arrival.min = localToday;
+        departure.min = localToday;
+        arrival.addEventListener('change', () => {
+            departure.min = arrival.value || localToday;
+            if (departure.value && departure.value <= arrival.value) departure.value = '';
+        });
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            if (!form.reportValidity()) return;
+            if (departure.value <= arrival.value) {
+                departure.setCustomValidity('La fecha de salida debe ser posterior a la llegada.');
+                departure.reportValidity();
+                departure.addEventListener('input', () => departure.setCustomValidity(''), { once: true });
+                return;
+            }
+            const data = new FormData(form);
+            const text = [
+                '¡Hola! Quiero consultar disponibilidad para una reserva en Bosque Sereno 🌲',
+                '',
+                `Nombre: ${data.get('nombre')}`,
+                `Teléfono: ${data.get('telefono')}`,
+                `Cabaña: ${data.get('cabana')}`,
+                `Huéspedes: ${data.get('huespedes')}`,
+                `Llegada: ${data.get('llegada')}`,
+                `Salida: ${data.get('salida')}`,
+                data.get('mensaje') ? `Mensaje: ${data.get('mensaje')}` : ''
+            ].filter(Boolean).join('\n');
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+        });
+        document.getElementById('year').textContent = new Date().getFullYear();
+        document.querySelectorAll('#mainNav .nav-link, #mainNav .btn').forEach(link => link.addEventListener('click', () => {
+            const nav = document.getElementById('mainNav');
+            if (nav.classList.contains('show')) bootstrap.Collapse.getOrCreateInstance(nav).hide();
+        }));
+    </script>
+</body>
+
+</html>
